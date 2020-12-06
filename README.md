@@ -23,9 +23,8 @@
 `UUID` > `一个 UUID，供用户连接时验证身份使用`。
 
 ## 注意
-### PATH
 
-WebSocket 路径为 `/`。
+WebSocket 路径为 `/app`。
 
 `alterId` 为 `64`。
 
