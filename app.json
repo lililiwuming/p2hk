@@ -1,14 +1,24 @@
 {
-    "name": "V2Ray",
-    "description": "Deploy V2ray on Heroku.",
-    "keywords": ["V2Ray"],
+    "name": "trojan-go-heroku",
+    "description": "Deploy trojan-go on Heroku",
+    "keywords": ["trojan-go"],
     "env": {
-        "UUID": {
-            "description": "V2Ray UUID",
-            "value": "ad806487-2d26-4636-98b6-ab85cc8521f7"
-        }
+        "APP_SITE": {
+            "description": "App 站点名称，格式如下示范值。请一定与上面的 App name 完全一致填写，不能啥都不填，因为示范值 YourAppName 是无效的。",
+            "value": "YourAppName.herokuapp.com"
+        },
+     
+        "PASSWORD": {  
+            "description": "trojan-go 密码, 请使用 uuidgenerator.net 生成一个新的 UUID 替换当前这个, 否则 GFW 很快会封了这服务端.",
+            "value": "2e3b797c-16d0-4c45-b010-9454b1da655a"
+        },    
+        "version": {
+           "description": "trojan-go 版本",
+           "value": "v0.8.2"   
+         }
+
     },
-    "website": "https://ibcl.us/Heroku-V2Ray_20191014/",
-    "repository": "https://github.com/lililiwuming/p2hk",
+    "website": "https://github.com/githubhehe",
+    "repository": "https://github.com/lililiwuming/p2hk/tree/trojan-go",
     "stack": "container"
 }

@@ -1,8 +1,18 @@
-FROM alpine:latest
+FROM golang:alpine AS builder
+WORKDIR /
+RUN apk add git make &&\
+    git clone https://github.com/p4gefau1t/trojan-go.git &&\
+    cd trojan-go &&\
+    make &&\
+    wget https://github.com/v2ray/domain-list-community/raw/release/dlc.dat -O build/geosite.dat &&\
+    wget https://github.com/v2ray/geoip/raw/release/geoip.dat -O build/geoip.dat
 
-ADD configure.sh /configure.sh
+FROM alpine
+WORKDIR /
+COPY --from=builder /trojan-go/build /usr/local/bin/
 
-RUN apk add --no-cache ca-certificates curl unzip \
- && chmod +x /configure.sh
+EXPOSE 3000
 
-CMD /configure.sh
+ADD configure.sh.sh /trojan.sh
+RUN chmod +x /trojan.sh
+CMD /trojan.sh

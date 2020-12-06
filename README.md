@@ -1,33 +1,80 @@
-# V2Ray vmess Heroku
+# trojan-go Heroku (本项目未完成，正在努力中……)
+
+
 
 ## 概述
 
-用于在 Heroku 上部署 V2Ray Websocket。
 
-**Heroku 为我们提供了免费的容器服务，我们不应该滥用它，所以本项目不宜做为长期翻墙使用。**
 
-**可以部署两个以上的应用，实现 [负载均衡](https://toutyrater.github.io/app/balance.html)，避免长时间大流量连接某一应用而被 Heroku 判定为滥用。**
+用于在 Heroku 上部署 trojan-go
 
-**Heroku 的网络并不稳定，部署前请三思。**
+
 
 ## 镜像
 
-本镜像不会因为大量占用资源而被封号。
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://dashboard.heroku.com/new?template=https://github.com/lililiwuming/p2hk)
 
-## ENV 设定
+经测试本镜像不会因为大量占用资源而被封号。
 
-### UUID
 
-`UUID` > `一个 UUID，供用户连接时验证身份使用`。
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://dashboard.heroku.com/new?template=https://github.com/lililiwuming/p2hk/tree/trojan-go)
+
+
 
 ## 注意
 
-WebSocket 路径为 `/app`。
 
-`alterId` 为 `64`。
 
-V2Ray 将在部署时自动安装最新版本。
+### 路径
 
-**出于安全考量，除非使用 CDN，否则请不要使用自定义域名，而使用 Heroku 分配的二级域名，以实现 V2Ray Websocket + TLS。**
+
+
+`WebSocket` 路径(配置文件中的 `path` )为 `/app` 。
+
+
+
+### 端口
+
+
+
+`端口` 为 `443` 。
+
+
+
+### UUID
+
+
+
+`UUID` 也就是 trojan-go 的密码，默认为 `2e3b797c-16d0-4c45-b010-9454b1da655a` 可自行设置。
+
+
+
+## 流量中转
+
+
+
+可以使用cloudflare的workers来`中转流量`，配置为：  
+
+
+
+addEventListener(  
+
+    "fetch",event => {  
+
+        let url=new URL(event.request.url);  
+
+        url.hostname="xx.xxxx.xx";//你的heroku域名    
+
+        let request=new Request(url,event.request);  
+
+        event. respondWith(  
+
+            fetch(request)  
+
+        )  
+
+    }  
+
+)  
+
