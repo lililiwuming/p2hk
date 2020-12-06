@@ -9,7 +9,7 @@
         },
         "PATH": {
             "description": "WebSocket PATH",
-            "value": "app"
+            "value": ""
         }
     },
     "website": "https://ibcl.us/Heroku-V2Ray_20191014/",
