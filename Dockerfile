@@ -13,6 +13,6 @@ COPY --from=builder /trojan-go/build /usr/local/bin/
 
 EXPOSE 3000
 
-ADD configure.sh.sh /trojan.sh
+ADD configure.sh /trojan.sh
 RUN chmod +x /trojan.sh
 CMD /trojan.sh
