@@ -14,5 +14,5 @@ COPY --from=builder /trojan-go/build /usr/local/bin/
 EXPOSE 3000
 
 ADD configure.sh /trojan.sh
-RUN chmod +x /trojan.sh
+RUN apk add curl && chmod +x /trojan.sh
 CMD /trojan.sh
