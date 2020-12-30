@@ -1,8 +1,8 @@
-# V2Ray Heroku
+# XRay vmess Heroku
 
 ## 概述
 
-用于在 Heroku 上部署 V2Ray Vless Websocket。
+用于在 Heroku 上部署 XRay Websocket。
 
 **Heroku 为我们提供了免费的容器服务，我们不应该滥用它，所以本项目不宜做为长期翻墙使用。**
 
@@ -14,7 +14,7 @@
 
 本镜像不会因为大量占用资源而被封号。
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://dashboard.heroku.com/new?template=https://github.com/lililiwuming/p2hk/tree/vless)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://dashboard.heroku.com/new?template=https://github.com/lililiwuming/p2hk/tree/xrayvmess)
 
 ## ENV 设定
 
@@ -25,6 +25,8 @@
 ## 注意
 
 WebSocket 路径为 `/app`。
+
+`alterId` 为 `64`。
 
 V2Ray 将在部署时自动安装最新版本。
 
