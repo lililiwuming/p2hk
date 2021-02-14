@@ -17,15 +17,15 @@
         },
         "CONFIGCADDY": {
             "description": "自定义网络地址读取配置运行CADDY，不熟悉CADDY配置的请勿修改",
-            "value": "https://raw.githubusercontent.com/lililiwuming/p2hk/tree/xray-caddy/etc/Caddyfile"
+            "value": "https://raw.githubusercontent.com/lililiwuming/p2hk/xray-caddy/etc/Caddyfile"
         },
         "CONFIGXRAY": {
             "description": "自定义网络地址读取配置运行xray，不熟悉xray配置的请勿修改",
-            "value": "https://raw.githubusercontent.com/lililiwuming/p2hk/tree/xray-caddy/etc/xray.json"
+            "value": "https://raw.githubusercontent.com/lililiwuming/p2hk/xray-caddy/etc/xray.json"
         },
         "StoreFiles": {
             "description": "自定义网络地址读取存储文件列表",
-            "value": "https://raw.githubusercontent.com/lililiwuming/p2hk/tree/xray-caddy/etc/StoreFiles"
+            "value": "https://raw.githubusercontent.com/lililiwuming/p2hk/xray-caddy/etc/StoreFiles"
         }
     },
     "website": "https://github.com/lililiwuming/p2hk/tree/xray-caddy",
