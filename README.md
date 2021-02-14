@@ -1,33 +1,87 @@
-# V2Ray vmess Heroku
+> 提醒： 滥用可能导致账户被BAN！！！   
+  
+* 使用[xray](https://github.com/XTLS/Xray-core)+caddy同时部署通过ws传输的vmess vless trojan等协议  
+* 支持tor网络，且可通过自定义网络配置文件启动xray和caddy来按需配置各种功能  
+* 支持存储自定义文件,目录及账号密码均为AUUID,客户端务必使用TLS连接  
+  
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://dashboard.heroku.com/new?template=https://github.com/lililiwuming/p2hk/tree/xray-caddy)  
+  
+### 服务端
+点击上面紫色`Deploy to Heroku`，会跳转到heroku app创建页面，填上app的名字、选择节点、按需修改部分参数和AUUID后点击下面deploy创建app即可开始部署  
+如出现错误，可以多尝试几次，待部署完成后页面底部会显示Your app was successfully deployed  
+  * 点击Manage App可在Settings下的Config Vars项**查看和重新设置参数**  
+  * 点击Open app跳转[欢迎页面](/etc/CADDYIndexPage.md)域名即为heroku分配域名，格式为`appname.herokuapp.com`，用于客户端  
+  * 默认协议密码为$UUID，WS路径为$UUID-[vmess|vless|trojan|ss|socks]格式
+  
+### 客户端
+* **务必替换所有的appname.herokuapp.com为heroku分配的项目域名**  
+* **务必替换所有的8f91b6a0-e8ee-11ea-adc1-0242ac120002为部署时设置的AUUID**  
+  
+<details>
+<summary>xray</summary>
 
-## 概述
+```bash
+* 客户端下载：https://github.com/XTLS/Xray-core/releases
+* 代理协议：vless 或 vmess
+* 地址：appname.herokuapp.com
+* 端口：443
+* 默认UUID：8f91b6a0-e8ee-11ea-adc1-0242ac120002
+* 加密：none
+* 传输协议：ws
+* 伪装类型：none
+* 路径：/8f91b6a0-e8ee-11ea-adc1-0242ac120002-vless // 默认vless使用/$uuid-vless，vmess使用/$uuid-vmess
+* 底层传输安全：tls
+```
+</details>
+  
+<details>
+<summary>trojan-go</summary>
 
-用于在 Heroku 上部署 V2Ray Websocket。
+```bash
+* 客户端下载: https://github.com/p4gefau1t/trojan-go/releases
+{
+    "run_type": "client",
+    "local_addr": "127.0.0.1",
+    "local_port": 1080,
+    "remote_addr": "appname.herokuapp.com",
+    "remote_port": 443,
+    "password": [
+        "8f91b6a0-e8ee-11ea-adc1-0242ac120002"
+    ],
+    "websocket": {
+        "enabled": true,
+        "path": "/8f91b6a0-e8ee-11ea-adc1-0242ac120002-trojan",
+        "host": "appname.herokuapp.com"
+    }
+}
+```
+</details>
+  
+  
+<details>
+<summary>cloudflare workers example</summary>
 
-**Heroku 为我们提供了免费的容器服务，我们不应该滥用它，所以本项目不宜做为长期翻墙使用。**
-
-**可以部署两个以上的应用，实现 [负载均衡](https://toutyrater.github.io/app/balance.html)，避免长时间大流量连接某一应用而被 Heroku 判定为滥用。**
-
-**Heroku 的网络并不稳定，部署前请三思。**
-
-## 镜像
-
-本镜像不会因为大量占用资源而被封号。
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://dashboard.heroku.com/new?template=https://github.com/lililiwuming/p2hk)
-
-## ENV 设定
-
-### UUID
-
-`UUID` > `一个 UUID，供用户连接时验证身份使用`。
-
-## 注意
-
-WebSocket 路径为 `/app`。
-
-`alterId` 为 `64`。
-
-V2Ray 将在部署时自动安装最新版本。
-
-**出于安全考量，除非使用 CDN，否则请不要使用自定义域名，而使用 Heroku 分配的二级域名，以实现 V2Ray Websocket + TLS。**
+```js
+const SingleDay = 'appname.herokuapp.com'
+const DoubleDay = 'appname.herokuapp.com'
+addEventListener(
+    "fetch",event => {
+    
+        let nd = new Date();
+        if (nd.getDate()%2) {
+            host = SingleDay
+        } else {
+            host = DoubleDay
+        }
+        
+        let url=new URL(event.request.url);
+        url.hostname=host;
+        let request=new Request(url,event.request);
+        event. respondWith(
+            fetch(request)
+        )
+    }
+)
+```
+</details>
+  
