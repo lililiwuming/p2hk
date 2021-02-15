@@ -55,11 +55,7 @@
     ],
     "outbounds":[
         {
-            "protocol":"freedom",
-            "tag":"direct",
-            "settings":{
-
-            }
+            "protocol":"freedom"
         }
     ]
 }
