@@ -60,24 +60,6 @@
             "settings":{
 
             }
-        },
-        {
-            "protocol":"blackhole",
-            "tag":"blocked",
-            "settings":{
-
-            }
         }
-    ],
-    "routing":{
-        "rules":[
-            {
-                "type":"field",
-                "outboundTag":"blocked",
-                "domain":[
-                    "geosite:category-ads-all"
-                ]
-            }
-        ]
-    }
+    ]
 }

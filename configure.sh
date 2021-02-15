@@ -4,8 +4,7 @@
 mkdir /tmp/xray
 curl -L -H "Cache-Control: no-cache" -o /tmp/xray/xray.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip
 unzip /tmp/xray/xray.zip -d /tmp/xray
-install -m 755 /tmp/xray/xray /xray
-install -m 755 /tmp/xray/ge* /xray
+install -m 755 /tmp/xray/xray /usr/local/bin/xray
 
 # Remove temporary directory
 rm -rf /tmp/xray
@@ -14,11 +13,14 @@ rm -rf /tmp/xray
 mkdir -p /etc/caddy/ /usr/share/caddy && echo -e "User-agent: *\nDisallow: /" >/usr/share/caddy/robots.txt
 curl -L -H "Cache-Control: no-cache"  $CADDYIndexPage -o /usr/share/caddy/index.html && unzip -qo /usr/share/caddy/index.html -d /usr/share/caddy/ && mv /usr/share/caddy/*/* /usr/share/caddy/
 curl -L -H "Cache-Control: no-cache"  $CONFIGCADDY | sed -e "1c :$PORT" -e "s/\$AUUID/$AUUID/g" -e "s/\$MYUUID-HASH/$(caddy hash-password --plaintext $AUUID)/g" >/etc/caddy/Caddyfile
-curl -L -H "Cache-Control: no-cache"  $CONFIGXRAY | sed -e "s/\$AUUID/$AUUID/g" >/xray/xray.json
+install -d /usr/local/etc/xray
+curl -L -H "Cache-Control: no-cache"  $CONFIGXRAY | sed -e "s/\$AUUID/$AUUID/g" >/usr/local/etc/xray/xray.json
 
 
 # start
 
-/xray/xray -config /xray/xray.json &
+
+# Run V2Ray
+/usr/local/bin/xray -config /usr/local/etc/xray/xray.json &
 
 caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
