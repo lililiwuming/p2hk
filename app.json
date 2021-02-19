@@ -8,7 +8,7 @@
             "value": "testapp"
         },
         "AUUID": {
-            "description": "UUID,可生成UUID的网站: https://www.uuidgenerator.net",
+            "description": "UUID充当各个配置的路径和账号密码，建议修改和妥善保存,可生成UUID的网站: https://www.uuidgenerator.net",
             "value": "8f91b6a0-e8ee-11ea-adc1-0242ac120002"
         },
         "CADDYIndexPage": {
@@ -16,12 +16,12 @@
             "value": "https://raw.githubusercontent.com/caddyserver/dist/master/welcome/index.html"
         },
         "CONFIGCADDY": {
-            "description": "自定义网络地址读取配置运行CADDY",
-            "value": "https://raw.githubusercontent.com/lililiwuming/p2hk/xray-caddy/etc/Caddyfile"
+            "description": "自定义网络地址读取配置运行CADDY，不熟悉CADDY配置的请勿修改",
+            "value": "https://raw.githubusercontent.com/lililiwuming/v2-xconfig/master/Caddyfile"
         },
         "CONFIGXRAY": {
-            "description": "自定义网络地址读取xray配置",
-            "value": "https://raw.githubusercontent.com/lililiwuming/p2hk/xray-caddy/etc/xray.json"
+            "description": "自定义网络地址读取配置运行xray，不熟悉xray配置的请勿修改",
+            "value": "https://raw.githubusercontent.com/lililiwuming/v2-xconfig/master/config.json"
         }
     },
     "website": "https://github.com/lililiwuming/p2hk/tree/xray-caddy",
