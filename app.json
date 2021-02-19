@@ -7,7 +7,7 @@
             "description": "heroku app name",
             "value": "testapp"
         },
-        "UUID": {
+        "AUUID": {
             "description": "UUID,可生成UUID的网站: https://www.uuidgenerator.net",
             "value": "8f91b6a0-e8ee-11ea-adc1-0242ac120002"
         },

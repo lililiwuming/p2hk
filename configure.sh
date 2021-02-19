@@ -12,9 +12,9 @@ rm -rf /tmp/xray
 # configs
 mkdir -p /etc/caddy/ /usr/share/caddy && echo -e "User-agent: *\nDisallow: /" >/usr/share/caddy/robots.txt
 curl -L -H "Cache-Control: no-cache"  $CADDYIndexPage -o /usr/share/caddy/index.html && unzip -qo /usr/share/caddy/index.html -d /usr/share/caddy/ && mv /usr/share/caddy/*/* /usr/share/caddy/
-curl -L -H "Cache-Control: no-cache"  $CONFIGCADDY | sed -e "1c :$PORT" -e "s/\$UUID/$UUID/g" -e "s/\$MYUUID-HASH/$(caddy hash-password --plaintext $UUID)/g" >/etc/caddy/Caddyfile
+curl -L -H "Cache-Control: no-cache"  $CONFIGCADDY | sed -e "1c :$PORT" -e "s/\$AUUID/$AUUID/g" -e "s/\$MYUUID-HASH/$(caddy hash-password --plaintext $AUUID)/g" >/etc/caddy/Caddyfile
 install -d /usr/local/etc/$APPNAME
-curl -L -H "Cache-Control: no-cache"  $CONFIGXRAY | sed -e "s/\UUID/$UUID/g" >/usr/local/etc/$APPNAME/config.json
+curl -L -H "Cache-Control: no-cache"  $CONFIGXRAY | sed -e "s/\AUUID/$AUUID/g" >/usr/local/etc/$APPNAME/config.json
 
 
 # start
