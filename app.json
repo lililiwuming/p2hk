@@ -3,12 +3,12 @@
     "description": "xray websocket proxy on heroku",
     "keywords": ["xray vmess vless trojan"],
     "env": {
-        "AA": {
-            "description": "初阶用户只需修改以下AUUID点击页面最后的Deploy app按钮即可开始部署",
-            "value": "如出现错误，请检查参数格式或多尝试几次。使用自定义参数请务必先充分理解其含义"
+        "APPNAME": {
+            "description": "heroku app name",
+            "value": "testapp"
         },
-        "AUUID": {
-            "description": "UUID充当各个配置的路径和账号密码，建议修改和妥善保存,可生成UUID的网站: https://www.uuidgenerator.net",
+        "UUID": {
+            "description": "UUID,可生成UUID的网站: https://www.uuidgenerator.net",
             "value": "8f91b6a0-e8ee-11ea-adc1-0242ac120002"
         },
         "CADDYIndexPage": {
@@ -16,11 +16,11 @@
             "value": "https://raw.githubusercontent.com/caddyserver/dist/master/welcome/index.html"
         },
         "CONFIGCADDY": {
-            "description": "自定义网络地址读取配置运行CADDY，不熟悉CADDY配置的请勿修改",
+            "description": "自定义网络地址读取配置运行CADDY",
             "value": "https://raw.githubusercontent.com/lililiwuming/p2hk/xray-caddy/etc/Caddyfile"
         },
         "CONFIGXRAY": {
-            "description": "自定义网络地址读取配置运行xray，不熟悉xray配置的请勿修改",
+            "description": "自定义网络地址读取xray配置",
             "value": "https://raw.githubusercontent.com/lililiwuming/p2hk/xray-caddy/etc/xray.json"
         }
     },
