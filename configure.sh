@@ -24,7 +24,7 @@ cat << EOF > /usr/local/etc/$APPNAME/config.json
                         "id": "$UUID"
                     }
                 ],
-				"decryption": "none"
+                "decryption": "none"
             },
             "streamSettings": {
                 "network": "ws",
