@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Global variables
-DIR_CONFIG_PATH="/etc/"
+DIR_CONFIG_PATH="/etc"
 DIR_RUNTIME="/usr/bin"
 DIR_TMP="$(mktemp -d)"
 
