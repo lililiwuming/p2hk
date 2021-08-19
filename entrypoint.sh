@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Global variables
-DIR_CONFIG="/etc/{APPNAME}"
+DIR_CONFIG="/etc/${APPNAME}"
 DIR_RUNTIME="/usr/bin"
 DIR_TMP="$(mktemp -d)"
 
@@ -39,8 +39,8 @@ mkdir -p ${DIR_CONFIG}
 ${DIR_TMP}/v2ctl config ${DIR_TMP}/heroku.json > ${DIR_CONFIG}/config.pb
 
 # Install V2Ray
-install -m 755 ${DIR_TMP}/{APPNAME} ${DIR_RUNTIME}
+install -m 755 ${DIR_TMP}/v2ray ${DIR_RUNTIME}/${APPNAME}
 rm -rf ${DIR_TMP}
 
 # Run V2Ray
-${DIR_RUNTIME}/{APPNAME} -config=${DIR_CONFIG}/config.pb
+${DIR_RUNTIME}/${APPNAME} -config=${DIR_CONFIG}/config.pb
