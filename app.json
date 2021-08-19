@@ -18,7 +18,7 @@
         },
         "WSPATH": {
             "description": "WebSocket Path",
-            "value": "/"
+            "value": "/APPWSPATH"
         }
     },
     "website": "https://ibcl.us/Heroku-p2hkv2m_20191014/",
