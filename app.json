@@ -1,22 +1,22 @@
 {
-    "name": "V2Ray",
-    "description": "Deploy V2ray on Heroku.",
-    "keywords": ["V2Ray"],
+    "name": "p2hkv2l",
+    "description": "Deploy p2hkv2l on Heroku.",
+    "keywords": ["p2hkv2l"],
     "env": {
         "ID": {
-            "description": "V2Ray UUID",
+            "description": "UUID",
             "value": "ad806487-2d26-4636-98b6-ab85cc8521f7"
         },
         "APPNAME": {
             "description": "heroku app name",
-            "value": "testapp"
+            "value": "appname"
         },
         "WSPATH": {
             "description": "WebSocket Path",
-            "value": "/apppath"
+            "value": "/appwspath"
         }
     },
-    "website": "https://ibcl.us/Heroku-V2Ray_20191014/",
+    "website": "https://ibcl.us/Heroku-_20191014/",
     "repository": "https://github.com/lililiwuming/p2hk/tree/vless",
     "stack": "container"
 }
