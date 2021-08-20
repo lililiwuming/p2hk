@@ -20,13 +20,13 @@
 
 ### UUID
 
-`UUID` > `一个 UUID，供用户连接时验证身份使用`。
+`ID` > `一个 UUID，供用户连接时验证身份使用`。
 
 ## 注意
 
 WebSocket 路径为 `/app`。
 
-`alterId` 为 `64`。
+`alterId` 为 `0`。
 
 V2Ray 将在部署时自动安装最新版本。
 
