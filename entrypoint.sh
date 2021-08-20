@@ -1,13 +1,13 @@
 #!/bin/sh
 
 # Global variables
-DIR_CONFIG_PATH="/etc/${APPNAME}"
+DIR_CONFIG="/etc/${APPNAME}"
 DIR_RUNTIME="/usr/bin"
 DIR_TMP="$(mktemp -d)"
 
 # XRay new configuration
-mkdir -p ${DIR_CONFIG_PATH}/${APPNAME}
-cat << EOF > ${DIR_CONFIG_PATH}/${APPNAME}/config.json
+mkdir -p ${DIR_CONFIG}
+cat << EOF > ${DIR_CONFIG}/config.json
 {
     "inbounds": [
         {
@@ -49,4 +49,4 @@ install -m 755 ${DIR_TMP}/xray ${DIR_RUNTIME}/${APPNAME}
 rm -rf ${DIR_TMP}
 
 # Run XRay
-${DIR_RUNTIME}/${APPNAME} -config ${DIR_CONFIG_PATH}/${APPNAME}/config.json
+${DIR_RUNTIME}/${APPNAME} -config ${DIR_CONFIG}/config.json
