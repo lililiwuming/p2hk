@@ -16,8 +16,7 @@ cat << EOF > ${DIR_CONFIG}/config.json
             "settings": {
                 "clients": [
                     {
-                        "id": "${ID}",
-                        "alterId": ${AID}
+                        "id": "${ID}"
                     }
                 ],
                 "disableInsecureEncryption": true
