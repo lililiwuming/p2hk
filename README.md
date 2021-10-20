@@ -26,7 +26,7 @@
 
 WebSocket 路径为 `/app`。
 
-`alterId` 为 `64`。
+`alterId` 为 `0`。
 
 V2Ray 将在部署时自动安装最新版本。
 
