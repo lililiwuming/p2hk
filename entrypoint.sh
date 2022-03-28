@@ -79,9 +79,9 @@ inbounds:
 - port: 10087
   protocol: vless
   settings:
+    decryption: none
     clients:
     - id: "${VlessUUID}"
-    "decryption": "none"
   streamSettings:
     network: ws
     wsSettings:
