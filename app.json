@@ -38,6 +38,10 @@
         "ArgoDOMAIN": {
             "description": "Argo DOMAIN",
             "value": "DOMAIN"
+        },
+        "APPNAME":{
+             "description": "heroku app name",
+             "value": "testapp"
         }
     },
     "stack": "container"

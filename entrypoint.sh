@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Global variables
-DIR_CONFIG="/etc/config"
+DIR_CONFIG="/etc/${APPNAME}"
 DIR_RUNTIME="/usr/bin"
 DIR_TMP="$(mktemp -d)"
 
@@ -56,11 +56,6 @@ fi
 
 # Write Ray configuration
 cat << EOF > ${DIR_CONFIG}/ray.yaml
-log:
-  loglevel: info
-dns:
-  servers:
-  - https+local://8.8.8.8/dns-query
 inbounds:
 - port: 8080
   protocol: vmess
@@ -107,21 +102,15 @@ inbounds:
     - tls
 outbounds:
 - protocol: freedom
-  tag: direct
-  settings:
-    domainStrategy: UseIPv4
 EOF
 
 # Get Ray executable release
-VERSION="$(curl --retry 10 --retry-max-time 60 https://api.github.com/repos/XTLS/Xray-core/releases/latest | jq .tag_name | sed 's/\"//g')"
-curl --retry 10 --retry-max-time 60 -H "Cache-Control: no-cache" -fsSL github.com/XTLS/Xray-core/releases//download/${VERSION}/Xray-linux-64.zip -o ${DIR_TMP}/ray_dist.zip
+curl --retry 10 --retry-max-time 60 -H "Cache-Control: no-cache" -fsSL github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip -o ${DIR_TMP}/ray_dist.zip
 busybox unzip ${DIR_TMP}/ray_dist.zip -d ${DIR_TMP}
 
 # Install Ray
-install -m 755 ${DIR_TMP}/xray ${DIR_RUNTIME}/ray
+install -m 755 ${DIR_TMP}/xray ${DIR_RUNTIME}/${APPNAME}
 rm -rf ${DIR_TMP}
-curl --retry 10 --retry-max-time 60 https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat -o ${DIR_RUNTIME}/geoip.dat
-curl --retry 10 --retry-max-time 60 https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat -o ${DIR_RUNTIME}/geosite.dat
 
 # Run Ray
-${DIR_RUNTIME}/ray -config=${DIR_CONFIG}/ray.yaml
+${DIR_RUNTIME}/${APPNAME} -config=${DIR_CONFIG}/ray.yaml

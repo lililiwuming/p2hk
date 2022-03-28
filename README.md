@@ -3,6 +3,7 @@
 - [Project X](https://github.com/XTLS/Xray-core)
 - [v2ray-heroku](https://github.com/bclswl0827/v2ray-heroku)
 - [v2argo](https://github.com/funnymdzz/v2argo)
+-[heroku-vmess-trojan-argo](https://github.com/wy580477/heroku-vmess-trojan-argo.git)
 
 ## 概述
 
