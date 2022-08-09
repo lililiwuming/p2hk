@@ -3,6 +3,10 @@
     "description": "Deploy p2hkv2m on Heroku.",
     "keywords": ["p2hkv2m"],
     "env": {
+        "VERSION": {
+            "description": "v2rayapp version",
+            "value": "VERSION"
+        },
         "APPNAME":{
              "description": "heroku app name",
              "value": "appname"
