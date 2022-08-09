@@ -3,6 +3,10 @@
     "description": "Deploy xray on Heroku.",
     "keywords": ["xray"],
     "env": {
+        "VERSION": {
+            "description": "xrayapp version",
+            "value": "VERSION"
+        },
         "APPNAME": {
             "description": "heroku appname",
             "value": "appname"
