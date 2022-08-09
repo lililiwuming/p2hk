@@ -4,6 +4,8 @@
 
 ## ENV 设定
 
+| `VERSION` | `VERSION` | xray 的版本，默认下载最新正式版 latest releases |
+
 ### UUID
 
 `UUID` > `一个 UUID，供用户连接时验证身份使用`。
