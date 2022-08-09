@@ -34,6 +34,7 @@
 
 | 变量 | 默认值 | 说明 |
 | :--- | :--- | :--- |
+| `VERSION` | `VERSION` | xray 的版本，默认下载最新正式版 latest releases |
 | `VmessUUID` | `ad2c9acd-3afb-4fae-aff2-954c532020bd` | Vmess 用户 UUID，用于身份验证，务必修改，建议使用UUID生成工具 |
 | `VmessPATH` | `/8182cac2` | Vmess Websocket 路径，务必修改为不包含敏感信息的路径 |
 | `TrojanPassword` | `7e66d422` | Trojan 协议密码，务必修改为强密码 |
