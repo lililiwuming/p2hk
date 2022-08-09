@@ -26,7 +26,7 @@
 | :--- | :--- | :--- |
 | `ID` | `ad806487-2d26-4636-98b6-ab85cc8521f7` | VLESS 用户 ID，用于身份验证，为 UUID 格式 |
 | `WSPATH` | `/` | WebSocket 所使用的 HTTP 协议路径 |
-
+| `VERSION` | `VERSION` | v2ray 的版本，默认下载最新正式版 latest releases |
 ## 接入 CloudFlare
 
 以下两种方式均可以将应用接入 CloudFlare，从而在一定程度上提升速度。
